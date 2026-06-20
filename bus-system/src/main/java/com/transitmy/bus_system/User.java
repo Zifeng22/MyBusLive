@@ -12,35 +12,39 @@ public class User {
 
     @Id
     @GeneratedValue (strategy=GenerationType.IDENTITY)
-    private Long UserID;
+    private Long userID;
 
-    private String Username;
+    private String username;
     private String password;
     private String email;
     private String phone;
 
-    public User(Long UserID, String Username, String password, String email, String phone){
-        this.UserID = UserID;
-        this.Username = Username;
+    public User(){
+
+    }
+
+    public User(Long userID, String username, String password, String email, String phone){
+        this.userID = userID;
+        this.username = username;
         this.password = password;
         this.email = email;
         this.phone = phone;
     }
 
     public Long getUserID() {
-        return UserID;
+        return userID;
     }
 
-    public void setUserID(Long UserID) {
-        this.UserID = UserID;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
-    public void setUsername(String Username) {
-        this.Username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

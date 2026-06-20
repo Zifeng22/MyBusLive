@@ -12,35 +12,35 @@ public class Driver {
 
     @Id
     @GeneratedValue ( strategy=GenerationType.IDENTITY)
-    private Long DriverID;
+    private Long driverID;
 
-    private String Drivername;
+    private String drivername;
     private String password;
     private String email;
     private String phone;
 
-    public Driver(Long DriverID, String Drivername, String password, String email, String phone){
-        this.DriverID = DriverID;
-        this.Drivername = Drivername;
+    public Driver(Long driverID, String drivername, String password, String email, String phone){
+        this.driverID = driverID;
+        this.drivername = drivername;
         this.password = password;
         this.email = email;
         this.phone = phone;
     }
 
     public Long getDriverID() {
-        return DriverID;
+        return driverID;
     }
 
-    public void setDriverID(Long DriverID) {
-        this.DriverID = DriverID;
+    public void setDriverID(Long driverID) {
+        this.driverID = driverID;
     }
 
     public String getDrivername() {
-        return Drivername;
+        return drivername;
     }
 
     public void setDrivername(String Drivername) {
-        this.Drivername = Drivername;
+        this.drivername = drivername;
     }
 
     public String getPassword() {
