@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     private UserRepository repo;
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public ResponseEntity<?> login(@RequestBody User user){
         User existingUser = repo.findByUsername(user.getUsername());
 
@@ -28,7 +28,7 @@ public class UserController {
         return ResponseEntity.ok(existingUser);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/user/register")
     public ResponseEntity<?> register(@RequestBody User user){
         if(user.getUsername()==null || user.getUsername().isBlank()
         || user.getPassword()==null || user.getPassword().isBlank()
@@ -41,7 +41,7 @@ public class UserController {
         return ResponseEntity.ok("Registration successful");
     }
 
-    @GetMapping("/setting/{user_id}")
+    @GetMapping("/user/setting/{user_id}")
     public User getUser(@PathVariable Long user_id){
         return repo.findById(user_id).orElseThrow();
     }

@@ -15,7 +15,7 @@ public class DriverController {
     @Autowired
     private DriverRepository repo;
 
-    @PostMapping("/login")
+    @PostMapping("/driver/login")
     public ResponseEntity<?> login(@RequestBody Driver driver){
         Driver existingDriver = repo.findByDrivername(driver.getDrivername());
 
@@ -28,7 +28,7 @@ public class DriverController {
         return ResponseEntity.ok(existingDriver);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/driver/register")
     public ResponseEntity<?> register(@RequestBody Driver driver){
         if(driver.getDrivername()==null || driver.getDrivername().isBlank()
         || driver.getPassword() == null || driver.getPassword().isBlank()
@@ -39,7 +39,7 @@ public class DriverController {
         repo.save(driver);
         return ResponseEntity.ok("Registration successful");
     }
-    @GetMapping("/setting/{driver_id}")
+    @GetMapping("/driver/setting/{driver_id}")
     public Driver getDriver(@PathVariable Long driver_id){
         return repo.findById(driver_id).orElseThrow();
     }

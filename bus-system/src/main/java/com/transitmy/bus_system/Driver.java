@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Driver")
+@Table(name = "drivers")
 public class Driver {
 
     @Id
@@ -18,7 +18,11 @@ public class Driver {
     private String password;
     private String email;
     private String phone;
+    
+    public Driver(){
 
+    }
+    
     public Driver(Long driverID, String drivername, String password, String email, String phone){
         this.driverID = driverID;
         this.drivername = drivername;
@@ -39,7 +43,7 @@ public class Driver {
         return drivername;
     }
 
-    public void setDrivername(String Drivername) {
+    public void setDrivername(String drivername) {
         this.drivername = drivername;
     }
 
