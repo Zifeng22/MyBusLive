@@ -1,4 +1,4 @@
-package com.transitmy.bus_system.Repository;
+package com.transitmy.bus_system.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

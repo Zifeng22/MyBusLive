@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.transitmy.bus_system.Repository.DriverRepository;
 import com.transitmy.bus_system.entity.Driver;
+import com.transitmy.bus_system.repository.DriverRepository;
 
 @RestController
 public class DriverController {

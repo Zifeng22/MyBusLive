@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.transitmy.bus_system.Repository.UserRepository;
 import com.transitmy.bus_system.entity.User;
+import com.transitmy.bus_system.repository.UserRepository;
 
 @RestController
 public class UserController {
