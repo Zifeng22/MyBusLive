@@ -1,4 +1,4 @@
-package com.transitmy.bus_system;
+package com.transitmy.bus_system.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,44 +7,44 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "drivers")
+public class Driver {
 
     @Id
-    @GeneratedValue (strategy=GenerationType.IDENTITY)
-    private Long userID;
+    @GeneratedValue ( strategy=GenerationType.IDENTITY)
+    private Long driverID;
 
-    private String username;
+    private String drivername;
     private String password;
     private String email;
     private String phone;
-
-    public User(){
+    
+    public Driver(){
 
     }
-
-    public User(Long userID, String username, String password, String email, String phone){
-        this.userID = userID;
-        this.username = username;
+    
+    public Driver(Long driverID, String drivername, String password, String email, String phone){
+        this.driverID = driverID;
+        this.drivername = drivername;
         this.password = password;
         this.email = email;
         this.phone = phone;
     }
 
-    public Long getUserID() {
-        return userID;
+    public Long getDriverID() {
+        return driverID;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
+    public void setDriverID(Long driverID) {
+        this.driverID = driverID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getDrivername() {
+        return drivername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setDrivername(String drivername) {
+        this.drivername = drivername;
     }
 
     public String getPassword() {
@@ -70,5 +70,6 @@ public class User {
     public void setPhone(String phone){
         this.phone = phone;
     }
+    
     
 }
