@@ -52,7 +52,7 @@ public class RouteController {
         return repo.findAll();
     }
 
-    @PutMapping("/rotes/{route_ID}")
+    @PutMapping("/routes/{route_ID}")
     public Route updateRoute(@PathVariable Long route_ID, @RequestBody Route route){
         Route location = repo.findById(route_ID).orElseThrow();
 

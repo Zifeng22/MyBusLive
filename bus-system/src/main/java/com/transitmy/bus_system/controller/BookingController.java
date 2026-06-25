@@ -27,7 +27,7 @@ public class BookingController {
     @Autowired
     private BusRepository busRepository;
 
-    @PostMapping
+    @PostMapping        //booking 
     public Booking createBooking(@RequestBody Booking booking) {
         // Check if the bus exists
         Bus bus = busRepository.findById(booking.getBus().getBusID()).orElseThrow() ;
@@ -42,12 +42,12 @@ public class BookingController {
 
         booking.setBus(bus);
         booking.setBookingTime(LocalDateTime.now());
-        booking.setBookingStatus("CONFIRMED");
+        booking.setBookingStatus("PENDING_PAYMENT");
 
         return bookingRepository.save(booking);
     }
 
-    @GetMapping
+    @GetMapping               //get all booking
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
@@ -67,7 +67,7 @@ public class BookingController {
         return bookingRepository.findByBusBusID(busId);
     }
 
-    @PutMapping("/{bookingID}/cancel")
+    @PutMapping("/{bookingID}/cancel")      //cancel booking
     public Booking cancelBooking(@PathVariable Long bookingID) {
         Booking booking = bookingRepository.findById(bookingID).orElseThrow();
 
