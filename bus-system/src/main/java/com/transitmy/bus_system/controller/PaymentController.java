@@ -65,7 +65,9 @@ public class PaymentController {
     }
 
     @PutMapping("/payments/{paymentID}/cancel")
-    
+    public Payment cancelPayment(@PathVariable Long paymentID) {
+        Payment payment = paymentRepository.findById(paymentID).orElseThrow();
+
 
     
     
