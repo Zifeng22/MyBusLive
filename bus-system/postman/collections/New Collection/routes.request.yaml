@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/routes"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"origin\": \"UTAR Kampar\",\r
+
+    \    \"destination\": \"Mahsuri Impian\",\r
+
+    \    \"fare\": 1,\r
+
+    \    \"estimatedTime\": 25\r
+
+    }"
+order: 1313578801492997

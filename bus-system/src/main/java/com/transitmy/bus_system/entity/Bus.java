@@ -1,3 +1,4 @@
+
 package com.transitmy.bus_system.entity;
 
 import jakarta.persistence.*;

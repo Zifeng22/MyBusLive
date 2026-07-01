@@ -1,0 +1,24 @@
+$kind: http-request
+name: buses
+url: "{{baseUrl}}/api/buses"
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \    \"busNumber\": \"BUS-101\",\r
+
+    \    \"totalSeats\": 47,\r
+
+    \    \"availableSeats\": 40,\r
+
+    \    \"status\": \"ACTIVE\",\r
+
+    \    \"route\": {\r
+
+    \        \"routeID\": 1\r
+
+    \    }\r
+
+    }"
+order: 3956270143275764
