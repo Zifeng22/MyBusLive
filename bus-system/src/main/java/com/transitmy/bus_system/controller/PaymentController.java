@@ -68,7 +68,12 @@ public class PaymentController {
     public Payment cancelPayment(@PathVariable Long paymentID) {
         Payment payment = paymentRepository.findById(paymentID).orElseThrow();
 
+        if(!"CANCELLED".equals(payment.getPaymentStatus())){
+            payment.setPaymentStatus("CANCELLED");
+            paymentRepository.save(payment);
+        }
 
-    
-    
+        return payment;
+    }
 }
+
