@@ -37,7 +37,7 @@ public class BookingController {
 
         }
 
-        bus.setAvailableSeats(bus.getAvailableSeats()-1);
+        bus.setAvailableSeats(bus.getAvailableSeats()-1); // dont Decrease the available seats in the bus
         busRepository.save(bus);
 
         booking.setBus(bus);
