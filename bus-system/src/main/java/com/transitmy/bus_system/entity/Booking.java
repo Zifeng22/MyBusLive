@@ -1,8 +1,15 @@
 package com.transitmy.bus_system.entity;
 
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bookings")
@@ -27,16 +34,22 @@ public class Booking {
     @JoinColumn(name = "bus_id")
     private Bus bus;
     //Each Booking is associated with one User and one Bus
+    
+    @ManyToOne
+    @JoinColumn(name = "route_id")
+    private Route route;
+
     public Booking() {
     }
 
-    public Booking(Long bookingID, int seatNumber, LocalDateTime bookingTime, String bookingStatus, User user, Bus bus) {
+    public Booking(Long bookingID, int seatNumber, LocalDateTime bookingTime, String bookingStatus, User user, Bus bus, Route route) {
         this.bookingID = bookingID;
         this.seatNumber = seatNumber;
         this.bookingTime = bookingTime;
         this.bookingStatus = bookingStatus;
         this.user = user;
         this.bus = bus;
+        this.route = route;
     }
 
     public Long getBookingID() {
@@ -89,6 +102,14 @@ public class Booking {
 
     public void updateBookingStatus(String newStatus) {
         this.bookingStatus = newStatus;
+    }
+
+      public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 
 }

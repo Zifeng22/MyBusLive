@@ -20,7 +20,7 @@ public class WalletController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/user/{userID}")
+    @PostMapping("/user/{userID}")         //create user walllet
     public Wallet createWallet(@PathVariable Long userID) {
         User user = userRepository.findById(userID).orElseThrow();
 
@@ -41,7 +41,7 @@ public class WalletController {
         return walletRepository.findByUserUserID(userID);
     }
 
-    @PutMapping("/user/{userID}/topup")
+    @PutMapping("/user/{userID}/topup")     //topup
     public Wallet topUpWallet(@PathVariable Long userID, @RequestParam BigDecimal amount) {
         Wallet wallet = walletRepository.findByUserUserID(userID);
 
@@ -58,7 +58,7 @@ public class WalletController {
         return walletRepository.save(wallet);
     }
 
-    @PutMapping("/user/{userID}/deduct")
+    @PutMapping("/user/{userID}/deduct")          //deduct balance
     public Wallet deductWallet(@PathVariable Long userID, @RequestParam BigDecimal amount) {
         Wallet wallet = walletRepository.findByUserUserID(userID);
 

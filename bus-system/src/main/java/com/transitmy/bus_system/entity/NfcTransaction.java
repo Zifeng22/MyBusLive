@@ -1,7 +1,14 @@
 package com.transitmy.bus_system.entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "nfc_transactions")
@@ -15,14 +22,6 @@ public class NfcTransaction {
     private String validationStatus;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "bus_id")
-    private Bus bus;
-
-    @ManyToOne
     @JoinColumn(name = "ticket_id")
     private Ticket ticket;
 
@@ -34,8 +33,6 @@ public class NfcTransaction {
         this.transactionID = transactionID;
         this.timestamp = timestamp;
         this.validationStatus = validationStatus;
-        this.user = user;
-        this.bus = bus;
         this.ticket = ticket;
     }
 
@@ -61,22 +58,6 @@ public class NfcTransaction {
 
     public void setValidationStatus(String validationStatus){
         this.validationStatus = validationStatus;
-    }
-
-    public User getUser(){
-        return user;
-    }
-
-    public void setUser(User user){
-        this.user = user;
-    }
-
-    public Bus getBus(){
-        return bus;
-    }
-
-    public void setBus(Bus bus){
-        this.bus = bus;
     }
 
     public Ticket getTicket(){

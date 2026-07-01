@@ -1,9 +1,16 @@
 package com.transitmy.bus_system.entity;
 
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "payments")
@@ -18,21 +25,21 @@ public class Payment {
     private String paymentStatus;
     private LocalDateTime transactionDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @OneToOne
+    @JoinColumn(name = "booking_id")
+    private Booking booking;
 
     public Payment(){
         
     }
 
-    public Payment(Long paymentID, BigDecimal amount, String paymentMethod, String paymentStatus, LocalDateTime transactionDate, User user){
+    public Payment(Long paymentID, BigDecimal amount, String paymentMethod, String paymentStatus, LocalDateTime transactionDate, Booking booking){
         this.paymentID = paymentID;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
         this.transactionDate = transactionDate;
-        this.user = user;
+        this.booking = booking;
     }
 
     public Long getPaymentID(){
@@ -75,11 +82,11 @@ public class Payment {
         this.transactionDate =  transactionDate;
     }
 
-    public User getUser(){
-        return user;
+    public Booking getBooking(){
+        return booking;
     }
 
-    public void setUser(User user){
-        this.user = user;
+    public void setBooking(Booking booking){
+        this.booking = booking;
     }
 }
