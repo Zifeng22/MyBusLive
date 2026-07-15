@@ -51,7 +51,7 @@ public class Ticket {
         return issueDate;
     }
     
-    public void set(LocalDateTime issueDate){
+    public void setIssueDate(LocalDateTime issueDate){
         this.issueDate = issueDate;
     }
 
