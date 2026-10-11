@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "MyBus Live Passenger",
+    "slug": "passenger-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.mybuslive.passenger",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.mybuslive.passenger",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "@react-native-firebase/app",
+        {
+          "android_google_services_file": "./google-services.json",
+          "ios_google_services_file": "./GoogleService-Info.plist"
+        }
+      ],
+      "@react-native-firebase/analytics"
+    ]
+  }
+}
